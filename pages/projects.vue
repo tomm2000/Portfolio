@@ -16,7 +16,9 @@ type dataType = {
 
 export default {
   data: (): dataType => { return {
-    project_list: ['test', 'bevo', 'aaa', 'ciao'],
+    project_list: [
+      'https://github.com/tomm2000/StarForge-Prototypes/raw/master/assets/gallery/terrain_09_03_22.png?raw=true'
+      ],
   }}
 }
 </script>

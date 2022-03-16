@@ -1,6 +1,6 @@
 <template>
 <div class="project-display">
-  {{ image }}
+  <img :src="image">
 </div>
 </template>
 
@@ -21,5 +21,11 @@ export default {
 .project-display {
   width: 20em;
   height: 20em;
+
+  img {
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+  }
 }
 </style>
