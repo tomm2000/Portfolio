@@ -1,0 +1,15 @@
+@import './colors.scss';
+
+* {
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+}
+
+body {
+  margin: 0;
+  background-color: $color_background;
+}
+
