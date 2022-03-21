@@ -1,5 +1,5 @@
 <template>
-<div class="navbar">
+<div class="contacts">
   <div class="tag">
     <div class="icon"><img src="profilepic.png"></div>
     <div class="info">
@@ -22,13 +22,13 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/css/colors.scss';
 
-.navbar {
+.contacts {
   border: 1px solid black;
   border-bottom: 0;
   // background: linear-gradient(180deg, rgba(47,47,62,1) 0%, rgba(47,47,62,1) 50%, rgba(47,47,62,0) 100%);
   background: $color_background_light;
 
-  border-radius: 0 0 .7rem .7rem;
+  border-radius: .7rem .7rem 0 0;
 
   // width: 100%;
   // height: 100%;
@@ -37,8 +37,8 @@ export default {
 
   display: flex;
   flex-direction: column;
-  
-  // margin: 0 3rem 4rem 0;
+
+  // margin: 3rem 3rem 0 0;
 
   .tag {
     // background: red;
