@@ -1,16 +1,32 @@
 <template>
 <div class="layout_main">
   <Nuxt class="content" />
-  <div class="navbar_wrapper navigate">
-    <Navbar class="navbar" />
-    <Contacts class="contacts" />
+  <div class="navbar_wrapper" :class="`${mode}`">
+    <Navbar :switchMode="switchMode" :mode="mode" class="navbar" />
+    <Contacts :switchMode="switchMode" :mode="mode" class="contacts" />
   </div>
 </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue, { PropOptions } from 'vue'
+
+export type menuModes = 'navigate' | 'contact'
+
+type dataType = {
+  mode: menuModes
 }
+
+export default Vue.extend({
+  data: (): dataType => { return {
+    mode: 'navigate'
+  }},
+  methods: {
+    switchMode() {
+      this.mode = this.mode == 'navigate' ? 'contact' : 'navigate'
+    }
+  }
+})
 </script>
 
 <style lang="scss" scoped>
@@ -26,6 +42,7 @@ export default {
 
   .navbar_wrapper {
     height: 100vh;
+    width: 20rem;
 
     // display: flex;
     // flex-direction: column;
@@ -48,13 +65,13 @@ export default {
     }
 
     .contacts {
-      bottom: -20rem;
+      bottom: -76%;
     }
   }
   
   .contact {
     .navbar {
-      top: -25rem;
+      top: -76%;
     }
 
     .contacts {

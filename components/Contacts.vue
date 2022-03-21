@@ -1,5 +1,8 @@
 <template>
-<div class="contacts">
+<div class="contacts navbar-common">
+  <div class="button" :class="`${mode}`" @click="() => {switchMode()}">
+    <img src="pointer.svg" />
+  </div>
   <div class="tag">
     <div class="icon"><img src="profilepic.png"></div>
     <div class="info">
@@ -10,35 +13,29 @@
   <InfoTag icon="github.svg"  text="Check my github!"    link="https://github.com/tomm2000" color="#36AF81" />
   <InfoTag icon="mail.svg"    text="Contact via Email"   link="mailto:tommasofogliobonda.tfb@gmail.com" color="#EE5656" />
   <InfoTag icon="discord.svg" text="Contact via discord" link="https://discordapp.com/users/190543027121553409" color="#1E75FF" />
+  <div class="spacer" />
 </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue, { PropOptions } from 'vue'
+import { menuModes } from '~/layouts/default.vue'
 
-}
+export default Vue.extend({
+  props: {
+    switchMode: { type: Function, required: true } as PropOptions<() => void>,
+    mode: { type: String, required: true } as PropOptions<menuModes>
+  }
+})
 </script>
 
 <style lang="scss" scoped>
 @import '@/assets/css/colors.scss';
+@import '@/assets/css/common/navbar.scss';
 
 .contacts {
-  border: 1px solid black;
   border-bottom: 0;
-  // background: linear-gradient(180deg, rgba(47,47,62,1) 0%, rgba(47,47,62,1) 50%, rgba(47,47,62,0) 100%);
-  background: $color_background_light;
-
   border-radius: .7rem .7rem 0 0;
-
-  // width: 100%;
-  // height: 100%;
-
-  padding: 1.5rem;
-
-  display: flex;
-  flex-direction: column;
-
-  // margin: 3rem 3rem 0 0;
 
   .tag {
     // background: red;
@@ -46,7 +43,7 @@ export default {
     width: 100%;
     display: flex;
     gap: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 
     .icon {
       font-size: 2rem;
@@ -73,5 +70,7 @@ export default {
       .extra { font-weight: 100; }
     }
   }
+
+  .button { margin-bottom: 1rem; }
 }
 </style>

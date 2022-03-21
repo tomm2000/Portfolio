@@ -1,5 +1,5 @@
 <template>
-<h1>HOME PAGE</h1>
+<h1>! WIP WEBSITE !</h1>
 </template>
 
 <script>
@@ -12,6 +12,8 @@
 h1 {
   justify-self: center;
   align-self: center;
+  text-decoration: underline;
+  font-size: 4em;
 }
 
 </style>
