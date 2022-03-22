@@ -10,9 +10,9 @@
       <div class="extra">developer</div>
     </div>
   </div>
-  <InfoTag icon="github.svg"  text="Check my github!"    link="https://github.com/tomm2000" color="#36AF81" />
-  <InfoTag icon="mail.svg"    text="Contact via Email"   link="mailto:tommasofogliobonda.tfb@gmail.com" color="#EE5656" />
-  <InfoTag icon="discord.svg" text="Contact via discord" link="https://discordapp.com/users/190543027121553409" color="#1E75FF" />
+  <ContactTag icon="github.svg"  text="Check my github!"    link="https://github.com/tomm2000" color="#36AF81" />
+  <ContactTag icon="mail.svg"    text="Contact via Email"   link="mailto:tommasofogliobonda.tfb@gmail.com" color="#EE5656" />
+  <ContactTag icon="discord.svg" text="Contact via discord" link="https://discordapp.com/users/190543027121553409" color="#1E75FF" />
   <div class="spacer" />
 </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-<div class="infotag">
+<div class="contacttag">
   <a class="container" :href="link" :style="`background: ${color}`">
     {{text}}
   </a>
@@ -32,7 +32,7 @@ export default Vue.extend({
 <style lang="scss" scoped>
 @import '@/assets/css/colors.scss';
 
-.infotag {
+.contacttag {
   width: 100%;
   min-width: 9rem;
   height: 5rem;
@@ -113,7 +113,7 @@ export default Vue.extend({
   }
 }
 
-.infotag:hover {
+.contacttag:hover {
   .arrow {
     scale: 1.3;
   }
