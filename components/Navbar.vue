@@ -1,6 +1,7 @@
 <template>
 <div class="navbar navbar-common">
-  <a href="/projects" class="projects-link">projects</a>
+  <a href="/Portfolio" class="projects-link">home</a>
+  <a href="/Portfolio/projects" class="projects-link">projects</a>
   <div class="spacer" />
   <div class="button" :class="`${mode}`" @click="() => {switchMode()}">
     <img src="pointer.svg" />

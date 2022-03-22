@@ -58,14 +58,17 @@ export default Vue.extend({
   data: (): dataType => { return {
     project_list: [
       { active: false },
-      { selected: false, link:'https://tomm2000.github.io/StarForge-Prototypes/', src: '/StarForge.png', title: '1 title', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id magni consequatur perferendis deserunt ex asperiores exercitationem sint, aliquid, ducimus obcaecati laudantium, officia iste placeat iure. Quaerat alias ipsa itaque a? 1'},
-      { selected: false, link:'https://tomm2000.github.io/StarForge-Prototypes/', src: '/StarForge.png', title: '2 title', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id magni consequatur perferendis deserunt ex asperiores exercitationem sint, aliquid, ducimus obcaecati laudantium, officia iste placeat iure. Quaerat alias ipsa itaque a? 2'},
-      { selected: false, link:'https://tomm2000.github.io/StarForge-Prototypes/', src: '/StarForge.png', title: '3 title', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id magni consequatur perferendis deserunt ex asperiores exercitationem sint, aliquid, ducimus obcaecati laudantium, officia iste placeat iure. Quaerat alias ipsa itaque a? 3'},
-      { selected: false, link:'https://tomm2000.github.io/StarForge-Prototypes/', src: '/StarForge.png', title: '4 title', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id magni consequatur perferendis deserunt ex asperiores exercitationem sint, aliquid, ducimus obcaecati laudantium, officia iste placeat iure. Quaerat alias ipsa itaque a? 4'},
-      { selected: false, link:'https://tomm2000.github.io/StarForge-Prototypes/', src: '/StarForge.png', title: '5 title', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id magni consequatur perferendis deserunt ex asperiores exercitationem sint, aliquid, ducimus obcaecati laudantium, officia iste placeat iure. Quaerat alias ipsa itaque a? 5'},
-      { selected: false, link:'https://tomm2000.github.io/StarForge-Prototypes/', src: '/StarForge.png', title: '6 title', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id magni consequatur perferendis deserunt ex asperiores exercitationem sint, aliquid, ducimus obcaecati laudantium, officia iste placeat iure. Quaerat alias ipsa itaque a? 6'},
-      { selected: false, link:'https://tomm2000.github.io/StarForge-Prototypes/', src: '/StarForge.png', title: '7 title', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id magni consequatur perferendis deserunt ex asperiores exercitationem sint, aliquid, ducimus obcaecati laudantium, officia iste placeat iure. Quaerat alias ipsa itaque a? 7'},
-      { selected: false, link:'https://tomm2000.github.io/StarForge-Prototypes/', src: '/StarForge.png', title: '8 title', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id magni consequatur perferendis deserunt ex asperiores exercitationem sint, aliquid, ducimus obcaecati laudantium, officia iste placeat iure. Quaerat alias ipsa itaque a? 8'},
+      { selected: false, link:'https://tomm2000.github.io/StarForge-Prototypes/', src: 'https://github.com/tomm2000/Portfolio/blob/gh-pages/planetpic.png?raw=true', title: 'StarForge', description: 
+`A procedural solar system and planet generator.
+Written in typescript using Babylon.js for the 3D and various noise algorithms for the terrain generation.
+The generator is GPU-accelerated for better performance`},
+      { selected: false, link:'https://tomm2000.github.io/StarForge-Prototypes/', src: 'https://github.com/tomm2000/Portfolio/blob/gh-pages/planetpic.png?raw=true', title: '2 title', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id magni consequatur perferendis deserunt ex asperiores exercitationem sint, aliquid, ducimus obcaecati laudantium, officia iste placeat iure. Quaerat alias ipsa itaque a? 2'},
+      { selected: false, link:'https://tomm2000.github.io/StarForge-Prototypes/', src: 'https://github.com/tomm2000/Portfolio/blob/gh-pages/planetpic.png?raw=true', title: '3 title', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id magni consequatur perferendis deserunt ex asperiores exercitationem sint, aliquid, ducimus obcaecati laudantium, officia iste placeat iure. Quaerat alias ipsa itaque a? 3'},
+      { selected: false, link:'https://tomm2000.github.io/StarForge-Prototypes/', src: 'https://github.com/tomm2000/Portfolio/blob/gh-pages/planetpic.png?raw=true', title: '4 title', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id magni consequatur perferendis deserunt ex asperiores exercitationem sint, aliquid, ducimus obcaecati laudantium, officia iste placeat iure. Quaerat alias ipsa itaque a? 4'},
+      { selected: false, link:'https://tomm2000.github.io/StarForge-Prototypes/', src: 'https://github.com/tomm2000/Portfolio/blob/gh-pages/planetpic.png?raw=true', title: '5 title', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id magni consequatur perferendis deserunt ex asperiores exercitationem sint, aliquid, ducimus obcaecati laudantium, officia iste placeat iure. Quaerat alias ipsa itaque a? 5'},
+      { selected: false, link:'https://tomm2000.github.io/StarForge-Prototypes/', src: 'https://github.com/tomm2000/Portfolio/blob/gh-pages/planetpic.png?raw=true', title: '6 title', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id magni consequatur perferendis deserunt ex asperiores exercitationem sint, aliquid, ducimus obcaecati laudantium, officia iste placeat iure. Quaerat alias ipsa itaque a? 6'},
+      { selected: false, link:'https://tomm2000.github.io/StarForge-Prototypes/', src: 'https://github.com/tomm2000/Portfolio/blob/gh-pages/planetpic.png?raw=true', title: '7 title', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id magni consequatur perferendis deserunt ex asperiores exercitationem sint, aliquid, ducimus obcaecati laudantium, officia iste placeat iure. Quaerat alias ipsa itaque a? 7'},
+      { selected: false, link:'https://tomm2000.github.io/StarForge-Prototypes/', src: 'https://github.com/tomm2000/Portfolio/blob/gh-pages/planetpic.png?raw=true', title: '8 title', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id magni consequatur perferendis deserunt ex asperiores exercitationem sint, aliquid, ducimus obcaecati laudantium, officia iste placeat iure. Quaerat alias ipsa itaque a? 8'},
       { active: false }
     ],
     title: '',
@@ -155,6 +158,9 @@ export default Vue.extend({
     setTimeout(() => {
       this.updatePositions()
     }, 60);
+
+    const body = document.getElementsByTagName('body').item(0)!
+    body.onresize = () => { this.updatePositions() }
   },
 })
 </script>
@@ -230,6 +236,7 @@ export default Vue.extend({
       span {
         padding: .3rem .5rem 0 .5rem;
         margin: 0;
+        white-space: pre-wrap;
       }
     }
     
