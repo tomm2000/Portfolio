@@ -5,6 +5,18 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   box-sizing: border-box;
   overflow: hidden;
+
+  scrollbar-color: $color_white_5 transparent;
+  scrollbar-arrow-color: transparent;
+  
+  &::-webkit-scrollbar-track {
+    background: transparent;        /* color of the tracking area */
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background-color: $color_white_5;    /* color of the scroll thumb */
+  }
+  
 }
 
 html {
@@ -15,7 +27,7 @@ body {
   margin: 0;
   height: 100vh;
   width: 100vw;
-  background-color: $color_background;
+  background-color: $color_background_1;
 }
 
 .noselect {

@@ -50,7 +50,7 @@ export default Vue.extend({
       height: 50%;
       width: 50%;
       transition: fill .2s ease;
-      fill: rgba(255, 255, 255, 0.3);
+      fill: $color_white_4;
     }
   }
 
@@ -59,22 +59,22 @@ export default Vue.extend({
     align-items: center;
 
     font-size: 1.3rem;
-    color: rgba(255, 255, 255, 0.3);
+    color: $color_white_4;
     transition: color .2s ease;
   }
 
   &:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: $color_white_5;
   }
 }
 
 .selected {
   .text-wrap {
-    color: rgba(255, 255, 255);
+    color: $color_white_1;
   }
 
   .icon-wrap { * {
-    fill: rgba(255, 255, 255);
+    fill: $color_white_1;
   }}
 }
 </style>

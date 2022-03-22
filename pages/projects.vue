@@ -135,11 +135,6 @@ Written in rust using macroQUAD for the interface.
 
         point.y -= list.scrollTop
 
-        // const dist = Math.sqrt(
-        //   Math.pow(point.x - this.subline_start.x, 2) +
-        //   Math.pow(point.y - this.subline_start.y, 2)
-        // )
-
         const dist = Math.abs(point.y - this.subline_start.y)
 
         if(dist < min_distance) {
@@ -179,6 +174,8 @@ Written in rust using macroQUAD for the interface.
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/css/colors.scss';
+
 .projects {
   display: grid;
   grid-template-columns: 0 20rem auto;
@@ -230,15 +227,15 @@ Written in rust using macroQUAD for the interface.
     align-items: center;
     pointer-events: none;
 
-
     .wrapper {
+      background: $color_background_4;
       display: grid;
       grid-template-columns: 2fr 1fr;
       grid-template-rows: auto auto;
 
       pointer-events: all;
 
-      border: 1px solid rgba(255, 255, 255, 0.123);
+      border: 1px solid $color_white_5;
       border-radius: .5rem;
       padding: .7rem;
       max-width: 80%;

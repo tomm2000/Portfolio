@@ -39,6 +39,8 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/css/colors.scss';
+
 .project-display {
   width: 15rem;
   height: 15rem;
@@ -86,10 +88,7 @@ export default Vue.extend({
     height: inherit;
     width: inherit;
 
-
     border-radius: 1rem;
-    // border-width: 0;
-    border: 0 solid rgba(255, 255, 255, 0);
     transition: border-color .3s ease;
 
     pointer-events: none;
@@ -97,12 +96,12 @@ export default Vue.extend({
 }
 
 .selected {
-  background: rgba(255, 255, 255, 0.1);
+  background: $color_white_5;
   .link {
   pointer-events: all;
 
     &:hover {
-      border: 2px solid rgba(255, 255, 255, 0.6);
+      border: 2px solid $color_white_3;
       // border-width: 1px;
       cursor: pointer;
     }
