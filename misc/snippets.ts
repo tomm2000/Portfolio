@@ -111,4 +111,56 @@ export const code_snippets: code_snippet[] = [{
     output_elevation
   );
 }`
+},{
+  lang: 'rust',
+  filename: 'genome.rs',
+  file_url: '',
+  project_url: '',
+  project: 'Rust NEAT',
+  src: 
+`/** calculates the distance between this genome g1 and a second genome g2 */
+pub fn distance(&self, other: Self) -> f32 {
+  let g1;
+  let g2;
+
+  if self.get_max_innov() > other.get_max_innov() {
+    g1 = self.get_connections();
+    g2 = other.get_connections();
+  } else {
+    g1 = other.get_connections();
+    g2 = self.get_connections();
+  }
+
+  let mut index1 = 0;
+  let mut index2 = 0;
+
+  let mut similar = 0;
+  let mut disjoint = 0;
+  let mut weight_diff = 0.0;
+
+  while index1 < g1.len() && index2 < g2.len() {
+    let conn1 = g1.get(index1).unwrap();
+    let conn2 = g2.get(index2).unwrap();
+
+    if conn1.get_innov() == conn2.get_innov() { // genes are similar
+      similar += 1;
+      weight_diff += (conn1.get_weight() - conn2.get_weight()).abs();
+      index1 += 1;
+      index2 += 1;
+    } else if conn1.get_innov() > conn2.get_innov() {
+      disjoint += 1;
+      index2 += 1;
+    } else {
+      disjoint += 1;
+      index1 += 1;
+    }
+  }
+
+  weight_diff /= max(1, similar) as f32;
+  let excess = g1.len() - index1;
+
+  let n = max(g1.len(), g2.len());
+
+  return (C1 as f32 * disjoint as f32 + C2 as f32 * excess as f32 + C3 as f32 * weight_diff) / n as f32;
+}`
 }]

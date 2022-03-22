@@ -80,7 +80,6 @@ export default Vue.extend({
     }
   }
   
-
   .link {
     grid-row: 1;
     grid-column: 1;
@@ -89,6 +88,7 @@ export default Vue.extend({
     width: inherit;
 
     border-radius: 1rem;
+    border: 2px solid transparent;
     transition: border-color .3s ease;
 
     pointer-events: none;

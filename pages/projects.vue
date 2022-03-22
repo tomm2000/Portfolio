@@ -168,7 +168,7 @@ Written in rust using macroQUAD for the interface.
 
     setTimeout(() => {
       this.updatePositions()
-    }, 30);
+    }, 100);
   },
 })
 </script>
