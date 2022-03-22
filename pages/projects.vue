@@ -59,7 +59,9 @@ export default Vue.extend({
 //-------------------------------------------
 { selected: false, link:'https://tomm2000.github.io/StarForge-Prototypes/', src: 'https://github.com/tomm2000/Portfolio/blob/master/assets/images/planetpic.png?raw=true', title: 'StarForge', description: 
 `A procedural solar system and planet generator.
+
 Written in typescript using Babylon.js for the 3D and various noise algorithms for the terrain generation.
+
 The generator is GPU-accelerated for better performance`},
 //-------------------------------------------
 { selected: false, link:'https://github.com/tomm2000/neat_rust', src: 'https://github.com/tomm2000/Portfolio/blob/master/assets/images/rustneat.png?raw=true', title: 'Rust N.E.A.T.', description:
@@ -69,11 +71,11 @@ Written in rust using macroQUAD for the interface.
 `},
 //-------------------------------------------
 { selected: false, src: 'https://github.com/tomm2000/Portfolio/blob/master/assets/images/mailapp.png?raw=true', title: 'Mail App', description:
-`TODO
+`University project for 'programmazione 3'
 `},
 //-------------------------------------------
-{ selected: false, src: 'https://github.com/tomm2000/Portfolio/blob/master/assets/images/mailapp.png?raw=true', title: 'Prenotazioni WebApp', description:
-`TODO
+{ selected: false, src: 'https://github.com/tomm2000/Portfolio/blob/master/assets/images/webapp.png?raw=true', title: 'Prenotazioni WebApp', description:
+`University project for 'tecnologie web'
 `},
 //-------------------------------------------
       { active: false }
