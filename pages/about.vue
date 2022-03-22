@@ -2,8 +2,14 @@
 <h1>! WIP PAGE (about) !</h1>
 </template>
 
-<script>
+<script lang='ts'>
+import Vue, { PropOptions } from 'vue'
 
+export default Vue.extend({
+  mounted() {
+    this.$store.commit('CHANGE_ROUTE_INDEX', 3)
+  }
+})
 </script>
 
 <style lang="scss" scoped>

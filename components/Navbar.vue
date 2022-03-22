@@ -44,8 +44,7 @@ import Vue, { PropOptions } from 'vue'
 import { menuModes } from '~/layouts/default.vue'
 
 type dataType = {
-  selected: boolean[],
-  selected_index: number
+  selected: boolean[]
 }
 
 export default Vue.extend({
@@ -54,17 +53,22 @@ export default Vue.extend({
     mode: { type: String, required: true } as PropOptions<menuModes>
   },
   data: (): dataType => { return {
-    selected: [true],
-    selected_index: 0
+    selected: [true]
   }},
   methods: {
     setSelected(index: number) {
+      this.$store.commit('CHANGE_ROUTE_INDEX', index)
+    }
+  },
+  computed: {
+    selected_index() { return this.$store.getters.route_index }
+  },
+  watch: {
+    selected_index() {
+      const index = this.selected_index as number
+      
       this.selected = this.selected.map(() => false)
       this.selected[index] = true
-      this.selected_index = index
-
-      this.$store.commit('CHANGE_ROUTE_INDEX', index)
-      console.log(this.$store.getters.route_index)
     }
   }
 })

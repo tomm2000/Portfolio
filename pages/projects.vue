@@ -153,13 +153,17 @@ Written in rust using macroQUAD for the interface.
     }
   },
   mounted() {
+    this.$store.commit('CHANGE_ROUTE_INDEX', 1)
+    
     this.updatePositions()
-    setTimeout(() => {
-      this.updatePositions()
-    }, 60);
+    
 
     const body = document.getElementsByTagName('body').item(0)!
     body.onresize = () => { this.updatePositions() }
+
+    setTimeout(() => {
+      this.updatePositions()
+    }, 30);
   },
 })
 </script>

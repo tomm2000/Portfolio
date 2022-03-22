@@ -16,5 +16,5 @@ export const getters: GetterTree<RootState, RootState> = {
 }
 
 export const mutations: MutationTree<RootState> = {
-  CHANGE_ROUTE_INDEX: (state, newIndex: number) => (state.route_index = newIndex),
+  CHANGE_ROUTE_INDEX: (state, newIndex: number) => ( state.route_index = newIndex ),
 }

@@ -1,9 +1,15 @@
 <template>
-<h1>! WIP WEBSITE !</h1>
+<h1>! WIP PAGE (home) !</h1>
 </template>
 
-<script>
+<script lang='ts'>
+import Vue, { PropOptions } from 'vue'
 
+export default Vue.extend({
+  mounted() {
+    this.$store.commit('CHANGE_ROUTE_INDEX', 0)
+  }
+})
 </script>
 
 <style lang="scss" scoped>
