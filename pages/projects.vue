@@ -20,7 +20,7 @@
   </div>
   <div class="description">
     <div class="wrapper">
-      <div class="link"><a :href="link" class="noselect">click for more info!</a></div>
+      <div class="link"><a v-if="link != undefined" :href="link" class="noselect">click for more info!</a></div>
       <h1 id="title">{{ title }}</h1>
       <span id="desc">{{ description }}</span>
     </div>
@@ -33,7 +33,7 @@ import Vue, { PropOptions } from 'vue'
 
 type point = { x: number, y: number}
 
-type normal_project_data = { selected: boolean, link: string, src: string, title: string, description: string, active?: boolean }
+type normal_project_data = { selected: boolean, link?: string, src: string, title: string, description: string, active?: boolean }
 type empty_project_data  = { active: boolean}
 type project_data = normal_project_data | empty_project_data
 
@@ -57,15 +57,23 @@ export default Vue.extend({
     project_list: [
       { active: false },
 //-------------------------------------------
-      { selected: false, link:'https://tomm2000.github.io/StarForge-Prototypes/', src: 'https://github.com/tomm2000/Portfolio/blob/master/assets/images/planetpic.png?raw=true', title: 'StarForge', description: 
+{ selected: false, link:'https://tomm2000.github.io/StarForge-Prototypes/', src: 'https://github.com/tomm2000/Portfolio/blob/master/assets/images/planetpic.png?raw=true', title: 'StarForge', description: 
 `A procedural solar system and planet generator.
 Written in typescript using Babylon.js for the 3D and various noise algorithms for the terrain generation.
 The generator is GPU-accelerated for better performance`},
 //-------------------------------------------
-      { selected: false, link:'https://github.com/tomm2000/neat_rust', src: 'https://github.com/tomm2000/Portfolio/blob/master/assets/images/rustneat.png?raw=true', title: 'Rust N.E.A.T.', description:
+{ selected: false, link:'https://github.com/tomm2000/neat_rust', src: 'https://github.com/tomm2000/Portfolio/blob/master/assets/images/rustneat.png?raw=true', title: 'Rust N.E.A.T.', description:
 `A rust implementation of the NEAT (NeuroEvolution of Augmenting Topologies) algorithm.
 
 Written in rust using macroQUAD for the interface.
+`},
+//-------------------------------------------
+{ selected: false, src: 'https://github.com/tomm2000/Portfolio/blob/master/assets/images/mailapp.png?raw=true', title: 'Mail App', description:
+`TODO
+`},
+//-------------------------------------------
+{ selected: false, src: 'https://github.com/tomm2000/Portfolio/blob/master/assets/images/mailapp.png?raw=true', title: 'Prenotazioni WebApp', description:
+`TODO
 `},
 //-------------------------------------------
       { active: false }
@@ -237,7 +245,6 @@ Written in rust using macroQUAD for the interface.
         grid-row: 1;
         grid-column: 2;
 
-        // background: red;
         display: flex;
         justify-content: center;
         align-items: center;
