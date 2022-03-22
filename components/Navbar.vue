@@ -78,11 +78,11 @@ export default Vue.extend({
 
   display: grid;
   grid-template-columns: 1.5rem auto;
-  grid-template-rows: auto 2rem;
+  grid-template-rows: auto 2.5rem;
 
   .tag-wrap {
-      grid-column: 2;
-      grid-row: 1;
+    grid-column: 2;
+    grid-row: 1;
   }
 
   .button {
@@ -99,8 +99,6 @@ export default Vue.extend({
 
     .selector {
       transition: all .5s ease;
-
-      
 
       height: 4rem;
       width: 100%;

@@ -35,6 +35,9 @@ export default Vue.extend({
 
   display: grid;
   grid-template-columns: 4rem auto;
+  border-radius: .6rem;
+
+  transition: background .2s ease;
 
   cursor: pointer;
 
@@ -46,6 +49,7 @@ export default Vue.extend({
     * {
       height: 50%;
       width: 50%;
+      transition: fill .2s ease;
       fill: rgba(255, 255, 255, 0.3);
     }
   }
@@ -56,10 +60,10 @@ export default Vue.extend({
 
     font-size: 1.3rem;
     color: rgba(255, 255, 255, 0.3);
+    transition: color .2s ease;
   }
 
   &:hover {
-    border-radius: .6rem;
     background: rgba(255, 255, 255, 0.1);
   }
 }
