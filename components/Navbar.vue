@@ -62,6 +62,9 @@ export default Vue.extend({
       this.selected = this.selected.map(() => false)
       this.selected[index] = true
       this.selected_index = index
+
+      this.$store.commit('CHANGE_ROUTE_INDEX', index)
+      console.log(this.$store.getters.route_index)
     }
   }
 })

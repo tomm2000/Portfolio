@@ -7,16 +7,12 @@
     <line class="subline" :x1="subline_start.x" :y1="subline_start.y" :x2="subline_end.x" :y2="subline_end.y" />
   </svg>
   <div id="list" class="list" @scroll="updatePositions">
-    
     <ProjectDisplay v-for="(item, index) in project_list" :key="index"
       :src="item.src"
       :title="item.title"
       :description="item.description"
       :link="item.link"
-
-      :setText="setText"
       :setDisplayeElement="setDisplayElement"
-
       :index="index"
       :active="item.active"
       :selected="item.selected"
@@ -24,6 +20,7 @@
   </div>
   <div class="description">
     <div class="wrapper">
+      <div class="link"><a :href="link" class="noselect">click for more info!</a></div>
       <h1 id="title">{{ title }}</h1>
       <span id="desc">{{ description }}</span>
     </div>
@@ -44,6 +41,7 @@ type dataType = {
   project_list: project_data[],
   title: string,
   description: string,
+  link: string,
 
   diplayElements: (HTMLElement | undefined)[],
 
@@ -58,15 +56,23 @@ export default Vue.extend({
   data: (): dataType => { return {
     project_list: [
       { active: false },
-      { selected: false, link:'https://tomm2000.github.io/StarForge-Prototypes/', src: '', title: 'StarForge', description: 
+//-------------------------------------------
+      { selected: false, link:'https://tomm2000.github.io/StarForge-Prototypes/', src: 'https://github.com/tomm2000/Portfolio/blob/master/assets/images/planetpic.png?raw=true', title: 'StarForge', description: 
 `A procedural solar system and planet generator.
 Written in typescript using Babylon.js for the 3D and various noise algorithms for the terrain generation.
 The generator is GPU-accelerated for better performance`},
-      { selected: false, link:'https://github.com/tomm2000/neat_rust', src: '', title: '2 title', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id magni consequatur perferendis deserunt ex asperiores exercitationem sint, aliquid, ducimus obcaecati laudantium, officia iste placeat iure. Quaerat alias ipsa itaque a? 2'},
+//-------------------------------------------
+      { selected: false, link:'https://github.com/tomm2000/neat_rust', src: 'https://github.com/tomm2000/Portfolio/blob/master/assets/images/rustneat.png?raw=true', title: 'Rust N.E.A.T.', description:
+`A rust implementation of the NEAT (NeuroEvolution of Augmenting Topologies) algorithm.
+
+Written in rust using macroQUAD for the interface.
+`},
+//-------------------------------------------
       { active: false }
     ],
     title: '',
     description: '',
+    link: '',
 
     diplayElements: [],
 
@@ -78,10 +84,6 @@ The generator is GPU-accelerated for better performance`},
     timeout: null
   }},
   methods: {
-    setText(title: string, description: string) {
-      this.description = description
-      this.title = title
-    },
     getAttachPoint(element: HTMLElement): point {
       const width = element.clientWidth
       const height = element.clientHeight
@@ -123,10 +125,12 @@ The generator is GPU-accelerated for better performance`},
 
         point.y -= list.scrollTop
 
-        const dist = Math.sqrt(
-          Math.pow(point.x - this.subline_start.x, 2) +
-          Math.pow(point.y - this.subline_start.y, 2)
-        )
+        // const dist = Math.sqrt(
+        //   Math.pow(point.x - this.subline_start.x, 2) +
+        //   Math.pow(point.y - this.subline_start.y, 2)
+        // )
+
+        const dist = Math.abs(point.y - this.subline_start.y)
 
         if(dist < min_distance) {
           min_distance = dist
@@ -142,8 +146,9 @@ The generator is GPU-accelerated for better performance`},
       });
 
       (this.project_list[min_index] as any).selected = true
-      this.title = (this.project_list[min_index] as any).title
+      this.title       = (this.project_list[min_index] as any).title
       this.description = (this.project_list[min_index] as any).description
+      this.link        = (this.project_list[min_index] as any).link
       this.position = closest_point
     }
   },
@@ -213,8 +218,10 @@ The generator is GPU-accelerated for better performance`},
 
 
     .wrapper {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: auto auto;
+
       pointer-events: all;
 
       border: 1px solid rgba(255, 255, 255, 0.123);
@@ -222,12 +229,40 @@ The generator is GPU-accelerated for better performance`},
       padding: .7rem;
       max-width: 80%;
 
+      .link {
+        grid-row: 1;
+        grid-column: 2;
+
+        // background: red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: .2rem;
+
+        a {
+          text-decoration: none;
+          padding: .3rem;
+          border: 1px solid rgba(112, 198, 255, 0.5);
+          border-radius: .5rem;
+          color: rgba(112, 198, 255, 0.5);
+          cursor: pointer;
+
+          &:hover {
+            background-color:rgba(112, 198, 255, 0.1);
+          }
+        }
+      }
+
       h1 {
+        grid-row: 1;
+        grid-column: 1;
         padding: 0 .5rem .3rem .5rem;
         margin: 0;
       }
 
       span {
+        grid-row: 2;
+        grid-column: 1/3;
         padding: .3rem .5rem 0 .5rem;
         margin: 0;
         white-space: pre-wrap;

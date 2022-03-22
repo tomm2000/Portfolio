@@ -1,6 +1,8 @@
 <template>
 <div class="project-display" ref="target" :href="link" :class="{ selected, inactive: !active, active }">
-  <img draggable="false" class="noselect" :src="src" v-if="active">
+  <div class="img-wrap">
+    <img draggable="false" class="noselect" :src="src" v-if="active">
+  </div>
   <a :href="link" class="link"></a>
 </div>
 </template>
@@ -20,7 +22,6 @@ export default Vue.extend({
     title: { type: String, required: false } as PropOptions<string>,
     description: { type: String, required: false } as PropOptions<string>,
     index: { type: Number, required: true } as PropOptions<number>,
-    setText: { type: Function, required: true } as PropOptions<(title: string, description: string) => void>,
     setDisplayeElement: { type: Function, required: true } as PropOptions<(element: HTMLElement | undefined, index: number) => void>
   },
   methods: {
@@ -57,16 +58,26 @@ export default Vue.extend({
   grid-template-rows: 1fr;
 
   padding: 0;
+  border-radius: 1rem;
 
-  img {
+  .img-wrap {
     grid-row: 1;
     grid-column: 1;
+    padding: .8rem;
 
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    pointer-events: none;
+
+    img {
+      border-radius: .8rem;
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+      pointer-events: none;
+    }
   }
+  
 
   .link {
     grid-row: 1;
@@ -87,12 +98,11 @@ export default Vue.extend({
 
 .selected {
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 1rem;
   .link {
   pointer-events: all;
 
     &:hover {
-      border: 1px solid rgba(255, 255, 255);
+      border: 2px solid rgba(255, 255, 255, 0.6);
       // border-width: 1px;
       cursor: pointer;
     }
