@@ -1,5 +1,17 @@
 <template>
 <div class="homepage">
+  <div class="hero">
+    <div class="salute"><span>Hi! I'm</span></div>
+    <div class="name"><span>Tomm2000</span></div>
+    <div class="bio">
+      <span>I'm a software developer from Italy.</span>
+    </div>
+    <div class="projects-cta">
+      <span>Check out my</span>
+      <div class="button-wrap"><div class="button noselect" @click="() => {this.$router.push('/projects')}"><span>Projects</span></div></div>
+      <span>!</span>
+    </div>
+  </div>
   <div id="wrap" class="snippet-wrap">
     <div class="infocontainer">
       <div class="info-wrap"><a class="info noselect" :href="code ? code.project_url : ''">{{code ? code.project : ''}}</a></div>
@@ -35,6 +47,7 @@ export default Vue.extend({
   }},
   methods: {
     update_snippet() {
+      // there probably are much better ways than doing this, re-"compiling" the code each time a letter is added
       if(!this.code) { return }
 
       const code = this.code.src.substring(0, this.index)
@@ -93,13 +106,85 @@ export default Vue.extend({
 .homepage {
   display: grid;
   grid-template-columns: auto 30rem;
+
+  .hero {
+    padding: 3rem 0 3rem 3rem;
+    display: flex;
+    flex-direction: column;
+
+    .salute {
+      span {
+        font-size: 2rem;
+    }}
+
+    .name {
+      margin-bottom: 5rem;
+      span {
+        font-size: 5rem;
+        // text-decoration: underline;
+    }}
+
+    .bio {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-bottom: 1rem;
+      span {
+        font-size: 2rem;
+    }}
+
+    .projects-cta {
+      display: flex;
+
+      > span {
+        font-size: 2rem;
+        margin: 1rem 0 1rem 0;
+      }
+
+      .button-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 10rem;
+
+        .button {
+          background: #36AF81;
+          border-radius: .5rem;
+          padding: .3rem;
+          cursor: pointer;
+
+          animation: pulse 2s ease 0s infinite alternate ;
+
+          @keyframes pulse {
+            0%   {
+              background: #4fffbb;
+              scale: 0.9;
+            }
+            100% {
+              background: #36AF81;
+              scale: 1.1;
+            }
+          }
+
+          &:hover {
+            span {
+              text-decoration: underline;
+          }}
+
+          span {
+            font-size: 2rem;
+            color: $color_background_1;
+      }}}}
+      
+  }
   
   .snippet-wrap {
     grid-column: 2;
 
     padding: 1rem;
     margin: 2rem;
-    background-color: $color_background_5;
+    background-color: $color_background_3;
     border: 1px solid $color_white_5;
     border-radius: .8rem;
 

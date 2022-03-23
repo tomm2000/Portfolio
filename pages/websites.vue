@@ -18,7 +18,6 @@ export default Vue.extend({
 h1 {
   justify-self: center;
   align-self: center;
-  text-decoration: underline;
   font-size: 4em;
 }
 

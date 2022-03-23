@@ -22,7 +22,11 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Oxygen&display=swap", }, // Oxygen
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Nunito&display=swap", }, // Nunito
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inspiration&display=swap", }, // Inspiration
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap", }, // Titillium Web
     ]
   },
 

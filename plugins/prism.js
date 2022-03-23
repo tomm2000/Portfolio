@@ -1,5 +1,3 @@
-console.log('here')
-
 import Prism from 'prismjs'
 import 'prismjs/components/prism-c'
 import 'prismjs/components/prism-glsl'

@@ -1,6 +1,6 @@
 <template>
 <div class="contacttag">
-  <a class="container" :href="link" :style="`background: ${color}`">
+  <a class="text" :href="link" :style="`background: ${color}`">
     {{text}}
   </a>
   <div class="arrow-wrap">
@@ -51,7 +51,7 @@ export default Vue.extend({
 
   // background: blue;
 
-  .container {
+  .text {
     grid-column-start: 1;
     grid-row-start: 4;
 
@@ -116,6 +116,10 @@ export default Vue.extend({
 .contacttag:hover {
   .arrow {
     scale: 1.3;
+  }
+
+  .text {
+    text-decoration: underline;
   }
 }
 </style>

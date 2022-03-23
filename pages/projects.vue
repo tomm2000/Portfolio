@@ -18,7 +18,7 @@
       :selected="item.selected"
     />
   </div>
-  <div class="description">
+  <div class="description" @load="() => {console.log('load')}">
     <div class="wrapper">
       <div class="link"><a v-if="link != undefined" :href="link" class="noselect">click for more info!</a></div>
       <h1 id="title">{{ title }}</h1>
@@ -161,15 +161,15 @@ Written in rust using macroQUAD for the interface.
     this.$store.commit('CHANGE_ROUTE_INDEX', 1)
     
     this.updatePositions()
-    
 
     const body = document.getElementsByTagName('body').item(0)!
     body.onresize = () => { this.updatePositions() }
 
-    setTimeout(() => {
+    this.$nextTick(() => {
       this.updatePositions()
-    }, 100);
+    })
   },
+  
 })
 </script>
 
@@ -193,12 +193,12 @@ Written in rust using macroQUAD for the interface.
     pointer-events: none;
 
     .line, .subline {
-      stroke:#ffffff99;
+      stroke: $color_white_3;
       stroke-width:2;
     }
 
     .point, .joint {
-      stroke:#ffffff99;
+      stroke: $color_white_2;
       fill: white;
     }
   }
@@ -228,7 +228,7 @@ Written in rust using macroQUAD for the interface.
     pointer-events: none;
 
     .wrapper {
-      background: $color_background_4;
+      background: $color_background_3;
       display: grid;
       grid-template-columns: 2fr 1fr;
       grid-template-rows: auto auto;
@@ -259,6 +259,7 @@ Written in rust using macroQUAD for the interface.
 
           &:hover {
             background-color:rgba(112, 198, 255, 0.1);
+            text-decoration: underline;
           }
         }
       }

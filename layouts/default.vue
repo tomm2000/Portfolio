@@ -37,18 +37,11 @@ export default Vue.extend({
   height: 100vh;
 
   .content {
-    // background-color: red;
   }
 
   .navbar_wrapper {
     height: 100vh;
     width: 20rem;
-
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: flex-end;
-    // padding: 3rem 3rem 0 0;
-    // box-sizing: border-box;
 
     .navbar {
       position: absolute;
