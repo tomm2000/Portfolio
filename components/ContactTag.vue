@@ -59,7 +59,8 @@ export default Vue.extend({
     grid-row-end: 11;
 
     text-decoration: none;
-    // background: red;
+    font-weight: bold;
+    color: $color_background_1;
     height: 100%;
     border-radius: .2rem 0 .2rem .2rem;
 

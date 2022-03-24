@@ -179,12 +179,12 @@ Written in rust using macroQUAD for the interface.
 .projects {
   display: grid;
   grid-template-columns: 0 20rem auto;
-  grid-template-rows: 100%;
+  grid-template-rows: 1fr;
   height: 100vh;
 
   .pointer {
-    grid-column: 1;
     grid-row: 1;
+    grid-column: 1;
 
     z-index: 1;
 
@@ -212,8 +212,7 @@ Written in rust using macroQUAD for the interface.
     scroll-snap-type: y mandatory;
 
     grid-row: 1;
-    grid-column-start: 1;
-    grid-column-end: 4;
+    grid-column: 1/4;
 
   }
 

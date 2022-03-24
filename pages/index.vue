@@ -1,5 +1,10 @@
 <template>
 <div class="homepage">
+  <div class="blob-wrap">
+    <svg class="blob" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M71.8558 90.4801C60.0381 97.9598 29.3332 110.989 0 82.2163V0H18.6234C20.3644 3.25729 21.3215 5.56111 28.2781 10.7973C34.609 15.5626 50.1725 24.5503 71.8558 17.3119C96.2471 9.16949 104.513 28.5917 97.7071 54.65C93.5726 70.4804 83.6735 83.0005 71.8558 90.4801Z" fill="#1A1A40"/>
+    </svg>
+  </div>
   <div class="hero">
     <div class="salute"><span>Hi! I'm</span></div>
     <div class="name"><span>Tomm2000</span></div>
@@ -106,9 +111,28 @@ export default Vue.extend({
 .homepage {
   display: grid;
   grid-template-columns: auto 30rem;
+  grid-template-rows: 1fr;
+
+  .blob-wrap {
+    grid-row: 1;
+    grid-column: 1;
+
+    .blob {
+      height: 40rem;
+      width: auto;
+      display: flex;
+
+      * {
+        align-self: flex-start;
+      }
+    }
+  }
 
   .hero {
-    padding: 3rem 0 3rem 3rem;
+    grid-row: 1;
+    grid-column: 1;
+
+    padding: 6rem 0 3rem 3rem;
     display: flex;
     flex-direction: column;
 
@@ -154,9 +178,9 @@ export default Vue.extend({
           padding: .3rem;
           cursor: pointer;
 
-          animation: pulse 2s ease 0s infinite alternate ;
+          animation: pulse1 2s ease 0s infinite alternate;
 
-          @keyframes pulse {
+          @keyframes pulse1 {
             0%   {
               background: #4fffbb;
               scale: 0.9;
@@ -169,17 +193,18 @@ export default Vue.extend({
 
           &:hover {
             span {
-              text-decoration: underline;
+              font-weight: bolder;
           }}
 
           span {
             font-size: 2rem;
-            color: $color_background_1;
+            color: #1A1A40;
       }}}}
       
   }
   
   .snippet-wrap {
+    grid-row: 1;
     grid-column: 2;
 
     padding: 1rem;

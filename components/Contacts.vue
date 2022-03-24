@@ -46,13 +46,9 @@ export default Vue.extend({
     margin-bottom: 1rem;
 
     .icon {
-      font-size: 2rem;
-      background: #353542;
       border-radius: 50%;
-      border: 1px solid black;
       width: 3rem;
       height: 3rem;
-      text-align: center;
 
       img {
         width: 100%;
