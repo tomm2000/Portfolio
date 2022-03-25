@@ -258,4 +258,71 @@ export default Vue.extend({
     }
   }
 }
+
+@media screen and (max-width: 700px) {
+  .homepage {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 25rem auto;
+    padding-bottom: 4rem;
+
+    .blob-wrap {
+      grid-row: 1;
+      grid-column: 1;
+
+      .blob {
+        height: 25rem;
+      }
+    }
+
+    .hero {
+      grid-row: 1;
+      grid-column: 1;
+
+      .salute {
+        span {
+          font-size: medium;
+        }}
+
+      .name {
+        margin-bottom: 0;
+        span {
+          font-size: xx-large;
+      }}
+
+      .bio {
+        // display: flex;
+        // flex-direction: column;
+        // gap: 2rem;
+        // margin-bottom: 1rem;
+        span {
+          font-size: medium;
+      }}
+
+      .projects-cta {
+
+        > span {
+          font-size: medium;
+        }
+
+        .button-wrap {
+          width: 6em;
+
+          .button {
+
+            &:hover {
+              span {
+            }}
+
+            span {
+              font-size: medium;
+        }}}}
+    }
+
+    .snippet-wrap {
+      grid-row: 2;
+      grid-column: 1;
+    }
+  }
+}
 </style>

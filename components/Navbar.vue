@@ -131,4 +131,13 @@ export default Vue.extend({
     text-align: center;
   }
 }
+
+
+@media screen and (max-width: 700px) {
+  .navbar {
+    .selector-wrap {
+      display: none;
+    }
+  }
+}
 </style>

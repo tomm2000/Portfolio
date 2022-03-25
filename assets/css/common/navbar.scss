@@ -42,3 +42,19 @@
   
   .navigate { img { rotate: 180deg; } }
 }
+
+
+@media screen and (max-width: 700px) {
+  .navbar-common {
+    background: transparent;
+    border: transparent;
+    padding: 0;
+    width: 100%;
+
+    .button {
+      display: none;
+    }
+  }
+
+  
+}

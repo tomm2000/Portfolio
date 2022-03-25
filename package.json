@@ -7,7 +7,8 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "deploy": "./deploy.sh"
+    "deploy": "./deploy.sh",
+    "dev:host": "nuxt --hostname '192.168.1.224' --port 8000"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",

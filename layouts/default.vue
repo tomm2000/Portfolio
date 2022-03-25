@@ -1,7 +1,8 @@
 <template>
 <div class="layout_main">
   <Nuxt class="content" />
-  <div class="navbar_wrapper" :class="`${mode}`">
+  <div class="navbar_wrapper" :class="`${mode} ${mobile_menu_active ? 'mobile-menu-active' : ''}`">
+    <div class="hamburger-wrap"><img src="hamburger.svg" alt="" @click="() => {mobile_menu_active = !mobile_menu_active}"></div>
     <Navbar :switchMode="switchMode" :mode="mode" class="navbar" />
     <Contacts :switchMode="switchMode" :mode="mode" class="contacts" />
   </div>
@@ -15,11 +16,13 @@ export type menuModes = 'navigate' | 'contact'
 
 type dataType = {
   mode: menuModes
+  mobile_menu_active: boolean
 }
 
 export default Vue.extend({
   data: (): dataType => { return {
-    mode: 'navigate'
+    mode: 'navigate',
+    mobile_menu_active: false
   }},
   methods: {
     switchMode() {
@@ -30,6 +33,8 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/css/colors.scss';
+
 .layout_main {
   display: grid;
   grid-template-columns: auto 20rem;
@@ -42,6 +47,10 @@ export default Vue.extend({
   .navbar_wrapper {
     height: 100vh;
     width: 20rem;
+
+    .hamburger-wrap {
+      display: none;
+    }
 
     .navbar {
       position: absolute;
@@ -70,6 +79,113 @@ export default Vue.extend({
     .contacts {
       bottom: 0;
     }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .layout_main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    height: 100vh;
+
+    .content {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .navbar_wrapper {
+      grid-column: 1;
+      grid-row: 1;
+      background: transparent;
+
+      z-index: 2;
+
+      display: grid;
+      grid-template-columns: 5rem auto;
+      grid-template-rows: 1fr 1fr;
+
+      justify-self: flex-end;
+
+      height: 100vh;
+      width: 20rem;
+
+      transform: translateX(15rem);
+
+      transition: transform .8s ease, background .8s ease;
+
+      padding: 0 2rem 0 0;
+
+
+      .hamburger-wrap {
+        grid-column: 1;
+        grid-row: 1;
+        justify-self: center;
+        height: 5rem;
+        width: 5rem;
+        // border: 1px solid $color_white_5;
+        // background: $color_background_3;
+        // border-radius: 0 0 0 .5rem;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          cursor: pointer;
+        }
+      }
+
+      .navbar {
+        grid-column: 2;
+        grid-row: 1;
+        position: relative;
+        display: flex;
+      }
+
+      .contacts {
+        grid-column: 2;
+        grid-row: 2;
+        position: relative;
+        display: flex;
+      }
+    }
+
+    .navbar_wrapper.mobile-menu-active {
+      background: $color_background_2;
+      border-left: 2px solid $color_white_5;
+      transform: translateX(0);
+
+      .hamburger-wrap {
+        align-self: flex-start;
+      }
+
+      .navbar {
+      }
+
+      .contacts {
+      }
+    }
+
+  .navigate {
+    .navbar {
+      top: auto;
+    }
+
+    .contacts {
+      bottom: auto;
+    }
+  }
+  
+  .contact {
+    .navbar {
+      top: auto;
+    }
+
+    .contacts {
+      bottom: auto;
+    }
+  }
   }
 }
 </style>
