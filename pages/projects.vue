@@ -6,6 +6,7 @@
     <circle class="joint" :cx="subline_start.x" :cy="subline_start.y" r="3" />
     <line class="subline" :x1="subline_start.x" :y1="subline_start.y" :x2="subline_end.x" :y2="subline_end.y" />
   </svg>
+  <div class="distance-meter" id="distance-meter"></div>
   <div id="list" class="list" @scroll="updatePositions">
     <ProjectDisplay v-for="(item, index) in project_list" :key="index"
       :src="item.src"
@@ -109,6 +110,7 @@ Written in rust using macroQUAD for the interface.
     updatePositions() {
       const list = document.getElementById('list')!
       const title = document.getElementById('desc')!
+      const distance_meter = document.getElementById('distance-meter')!
 
       this.subline_start = {
         x: title.offsetLeft,
@@ -119,6 +121,11 @@ Written in rust using macroQUAD for the interface.
         x: title.offsetLeft + title.clientWidth,
         y: title.offsetTop
       }
+
+      const distance_point: point = {
+        x: distance_meter.offsetLeft,
+        y: distance_meter.offsetTop
+      } 
 
       let closest_point = this.position
       let min_distance = Number.MAX_VALUE
@@ -135,7 +142,7 @@ Written in rust using macroQUAD for the interface.
 
         point.y -= list.scrollTop
 
-        const dist = Math.abs(point.y - this.subline_start.y)
+        const dist = Math.abs(point.y - distance_point.y)
 
         if(dist < min_distance) {
           min_distance = dist
@@ -182,6 +189,7 @@ Written in rust using macroQUAD for the interface.
   grid-template-rows: 1fr;
   height: 100vh;
 
+  
   .pointer {
     grid-row: 1;
     grid-column: 1;
@@ -201,6 +209,13 @@ Written in rust using macroQUAD for the interface.
       stroke: $color_white_2;
       fill: white;
     }
+  }
+
+  .distance-meter {
+    grid-row: 1;
+    grid-column: 1/4;
+
+    align-self: center;
   }
 
   .list {
@@ -277,8 +292,52 @@ Written in rust using macroQUAD for the interface.
         margin: 0;
         white-space: pre-wrap;
       }
+    } 
+  }
+}
+
+@media screen and (max-width: $mobile_width_1) {
+  .projects {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0 25rem auto;
+
+    .distance-meter {
+      width: 0rem;
+      height: 0rem;
+      grid-row: 2;
+      grid-column: 1;
     }
-    
+
+    .pointer {
+      display: none;
+    }
+
+    .list {
+      grid-row: 2;
+      grid-column: 1;
+      margin-top: 5rem;
+      padding: 0 3rem 0 3rem;
+    }
+
+    .description {
+      grid-row: 3;
+      grid-column: 1;
+      padding: 2rem;
+
+      display: flex;
+      justify-content: center;
+      justify-self: center;
+      align-items: flex-start;
+
+      .wrapper {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      h1 {
+        font-size: x-large;
+      }
+    }
   }
 }
 </style>

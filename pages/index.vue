@@ -1,9 +1,7 @@
 <template>
 <div class="homepage">
   <div class="blob-wrap">
-    <svg class="blob" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M71.8558 90.4801C60.0381 97.9598 29.3332 110.989 0 82.2163V0H18.6234C20.3644 3.25729 21.3215 5.56111 28.2781 10.7973C34.609 15.5626 50.1725 24.5503 71.8558 17.3119C96.2471 9.16949 104.513 28.5917 97.7071 54.65C93.5726 70.4804 83.6735 83.0005 71.8558 90.4801Z" fill="#1A1A40"/>
-    </svg>
+    <img class="blob" src="blob.svg" alt="">
   </div>
   <div class="hero">
     <div class="salute"><span>Hi! I'm</span></div>
@@ -119,12 +117,7 @@ export default Vue.extend({
 
     .blob {
       height: 40rem;
-      width: auto;
-      display: flex;
-
-      * {
-        align-self: flex-start;
-      }
+      width: 40rem;
     }
   }
 
@@ -199,7 +192,7 @@ export default Vue.extend({
           span {
             font-size: 2rem;
             color: #1A1A40;
-      }}}}
+    }}}}
       
   }
   
@@ -259,7 +252,49 @@ export default Vue.extend({
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: $mobile_width_3) {
+  .homepage {
+    .blob-wrap {
+      grid-row: 1;
+      grid-column: 1;
+
+      .blob {
+        height: 25rem;
+        width: 25rem;
+      }
+    }
+
+    .hero {
+      .salute { span {
+          font-size: 1rem;
+      }}
+
+      .name { span {
+          font-size: 3rem;
+      }}
+
+      .bio { span {
+          font-size: 1rem;
+      }}
+
+      .projects-cta {
+        display: flex;
+
+        > span {
+          font-size: 1rem;
+        }
+
+        .button-wrap {
+          width: 5rem;
+          .button {
+            span {
+              font-size: 1rem;
+        }}}}
+    }
+  }
+}
+
+@media screen and (max-width: $mobile_width_2) {
   .homepage {
     display: grid;
     grid-template-columns: 1fr;
@@ -271,7 +306,11 @@ export default Vue.extend({
       grid-column: 1;
 
       .blob {
-        height: 25rem;
+        max-height: 25rem;
+        max-width: 25rem;
+
+        display: flex;
+        justify-content: flex-start;
       }
     }
 

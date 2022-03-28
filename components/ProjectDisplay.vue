@@ -43,7 +43,6 @@ export default Vue.extend({
 
 .project-display {
   width: 15rem;
-  height: 15rem;
   box-sizing: border-box;
 
   height: 33.33vh;
@@ -112,5 +111,19 @@ export default Vue.extend({
   .link {
     cursor: default;
   }  
+}
+
+
+@media screen and (max-width: $mobile_width_1) {
+  .project-display {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .inactive {
+    display: none;
+  }
 }
 </style>

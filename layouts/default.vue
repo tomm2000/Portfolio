@@ -28,6 +28,14 @@ export default Vue.extend({
     switchMode() {
       this.mode = this.mode == 'navigate' ? 'contact' : 'navigate'
     }
+  },
+  computed: {
+    selected_index() { return this.$store.getters.route_index }
+  },
+  watch: {
+    selected_index() {
+      this.mobile_menu_active = false
+    }
   }
 })
 </script>
@@ -82,7 +90,7 @@ export default Vue.extend({
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: $mobile_width_1) {
   .layout_main {
     display: grid;
     grid-template-columns: 1fr;
@@ -132,7 +140,19 @@ export default Vue.extend({
         align-items: center;
 
         img {
+          transition: rotate .8s ease;
           cursor: pointer;
+
+          animation: pulse1 1s cubic-bezier(0.165, 0.84, 0.44, 1) 0s infinite alternate;
+
+          @keyframes pulse1 {
+            0%   {
+              scale: 1;
+            }
+            100% {
+              scale: 1.1;
+            }
+          }
         }
       }
 
@@ -141,6 +161,7 @@ export default Vue.extend({
         grid-row: 1;
         position: relative;
         display: flex;
+        margin-top: 1rem;
       }
 
       .contacts {
@@ -153,11 +174,15 @@ export default Vue.extend({
 
     .navbar_wrapper.mobile-menu-active {
       background: $color_background_2;
+      opacity: 0.98;
       border-left: 2px solid $color_white_5;
       transform: translateX(0);
 
       .hamburger-wrap {
         align-self: flex-start;
+        img {
+          rotate: 90deg;
+        }
       }
 
       .navbar {

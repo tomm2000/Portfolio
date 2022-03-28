@@ -44,7 +44,7 @@
 }
 
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: $mobile_width_1) {
   .navbar-common {
     background: transparent;
     border: transparent;

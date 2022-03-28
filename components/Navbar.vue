@@ -133,7 +133,7 @@ export default Vue.extend({
 }
 
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: $mobile_width_1) {
   .navbar {
     .selector-wrap {
       display: none;
