@@ -8,8 +8,6 @@
     <Event date="" info="" />
     <Event date="" info="" />
     <Event date="" info="" />
-    <Event date="" info="" />
-    <Event date="" info="" />
   </div>
 </div>
 </template>

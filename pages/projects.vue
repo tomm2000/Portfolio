@@ -267,13 +267,13 @@ Written in rust using macroQUAD for the interface.
         a {
           text-decoration: none;
           padding: .3rem;
-          border: 1px solid rgba(112, 198, 255, 0.5);
+          border: 1px solid $color_accent_1_3;
           border-radius: .5rem;
-          color: rgba(112, 198, 255, 0.5);
+          color: $color_accent_1_3;
           cursor: pointer;
 
           &:hover {
-            background-color:rgba(112, 198, 255, 0.1);
+            background-color:$color_accent_1_5;
             text-decoration: underline;
           }
         }

@@ -10,6 +10,7 @@
   </div></div>
   <div class="line-bot line-wrap"><div class="track"></div></div>
   <div class="info noselect"><span>{{ info }}</span></div>
+  <div class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ratione quasi distinctio assumenda, porro dolore at recusandae cum quos eum. Eveniet cumque velit ab veniam similique doloribus libero porro. Alias.</div>
 </div>
 </template>
 
@@ -37,7 +38,7 @@ export default Vue.extend({
 @import '@/assets/css/colors.scss';
 
 .event {
-  height: 10rem;
+  height: 20vh;
   width: 100%;
   scroll-snap-align: start;
 
@@ -50,7 +51,7 @@ export default Vue.extend({
   transition: border-color .3s ease, height .3s ease;
 
   .background {
-    margin: .3rem;
+    margin: .3rem 0 .3rem 0;
     border-radius: .5rem;
     grid-row: 1/4;
     grid-column: 1/4;
@@ -85,7 +86,7 @@ export default Vue.extend({
     .track {
       width: 3px;
       transition: background .3s ease;
-      background: $color_white_4;
+      background: $color_accent_1_4
     }
 
     .point {
@@ -97,7 +98,7 @@ export default Vue.extend({
         transition: background .3s ease;
         grid-row: 1;
         width: 3px; 
-        background: $color_white_4;
+        background: $color_accent_1_4;
         justify-self: center;
         height: 100%;
       }
@@ -105,7 +106,7 @@ export default Vue.extend({
       .b {
         transition: background .3s ease, border .3s ease;
         background: transparent;
-        border: 3px solid $color_white_4;
+        border: 3px solid $color_accent_1_4;
         border-radius: 50%;
       }
 
@@ -113,7 +114,7 @@ export default Vue.extend({
         transition: background .3s ease;
         grid-row: 3;
         width: 3px;
-        background: $color_white_4;
+        background: $color_accent_1_4;
         justify-self: center;
         height: 100%;
       }
@@ -137,8 +138,17 @@ export default Vue.extend({
       grid-column: 3;
       align-self: center;
 
+      padding: 0 1rem 0 0;
+
       font-size: medium;
     }
+  }
+
+  .description {
+    grid-column: 3;
+    grid-row: 3;
+    display: none;
+    padding: 1rem 1rem 1rem 0;
   }
 }
 
@@ -152,20 +162,20 @@ export default Vue.extend({
 
   .date {
     span {
-      color: white;
+      color: $color_white_1;
     }
   }
 
   .line-wrap {
-    .track { background: $color_white_1; }
+    .track { background: $color_accent_1_2; }
 
     .point {
-      .a { background: $color_white_1; }
+      .a { background: $color_accent_1_2; }
       .b {
-        background: $color_white_1;
-        border: 3px solid $color_white_1;
+        background: $color_accent_1_4;
+        border: 3px solid $color_accent_1_2;
       }
-      .c { background: $color_white_1; }
+      .c { background: $color_accent_1_2; }
     }
   }
 
@@ -180,7 +190,11 @@ export default Vue.extend({
 .event.active {
   @extend .event, :hover;
 
-  height: 20rem;
+  height: 40vh;
+
+  .description {
+    display: block;
+  }
 }
 
 @media screen and (max-width: $mobile_width_1) {
