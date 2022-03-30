@@ -9,8 +9,8 @@
     <div class="c"/>
   </div></div>
   <div class="line-bot line-wrap"><div class="track"></div></div>
-  <div class="info noselect"><span>{{ info }}</span></div>
-  <div class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ratione quasi distinctio assumenda, porro dolore at recusandae cum quos eum. Eveniet cumque velit ab veniam similique doloribus libero porro. Alias.</div>
+  <div class="info noselect"><span>{{ title }}</span></div>
+  <div class="description">{{ description }}</div>
 </div>
 </template>
 
@@ -24,7 +24,8 @@ type dataType = {
 export default Vue.extend({
   props: {
     date:  { type: String, required: true } as PropOptions<string>,
-    info:  { type: String, required: true } as PropOptions<string>,
+    title:  { type: String, required: true } as PropOptions<string>,
+    description:  { type: String, required: true } as PropOptions<string>,
   },
   methods: {
   },

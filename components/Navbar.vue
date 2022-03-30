@@ -1,36 +1,15 @@
 <template>
 <div class="navbar navbar-common">
   <div class="tag-wrap">
-    <LinkTag text="Home" page="/" :selected="selected[PAGE_INDEX.home]" :index="PAGE_INDEX.home" :setSelected="setSelected">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
-        <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
-      </svg>
-    </LinkTag>
-    <LinkTag text="Projects" page="/projects" :selected="selected[PAGE_INDEX.projects]" :index="PAGE_INDEX.projects" :setSelected="setSelected">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stack" viewBox="0 0 16 16">
-        <path d="m14.12 10.163 1.715.858c.22.11.22.424 0 .534L8.267 15.34a.598.598 0 0 1-.534 0L.165 11.555a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.66zM7.733.063a.598.598 0 0 1 .534 0l7.568 3.784a.3.3 0 0 1 0 .535L8.267 8.165a.598.598 0 0 1-.534 0L.165 4.382a.299.299 0 0 1 0-.535L7.733.063z"/>
-        <path d="m14.12 6.576 1.715.858c.22.11.22.424 0 .534l-7.568 3.784a.598.598 0 0 1-.534 0L.165 7.968a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.659z"/>
-      </svg>
-    </LinkTag>
-    <LinkTag text="About" page="/about" :selected="selected[PAGE_INDEX.about]" :index="PAGE_INDEX.about" :setSelected="setSelected">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-        <path d="M12 1a1 1 0 0 1 1 1v10.755S12 11 8 11s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"/>
-        <path d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-      </svg>
-    </LinkTag>
-    <LinkTag text="Websites" page="/websites" :selected="selected[PAGE_INDEX.websites]" :index="PAGE_INDEX.websites" :setSelected="setSelected">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
-        <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
-      </svg>
-    </LinkTag>
-    <LinkTag text="Blog" page="/blog" :selected="selected[PAGE_INDEX.blog]" :index="PAGE_INDEX.blog" :setSelected="setSelected">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journal-bookmark-fill" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M6 1h6v7a.5.5 0 0 1-.757.429L9 7.083 6.757 8.43A.5.5 0 0 1 6 8V1z"/>
-        <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
-        <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
-      </svg>
-    </LinkTag>
+    <LinkTag v-for="(nav, index) in navbar_list" :key="index"
+      :index="index"
+      :setSelected="setSelected"
+      :icon="nav.icon"
+      :title="nav.title"
+      :page="nav.page"
+      :selected="selected[index]"
+      :color="nav.color"
+    />
   </div>
   <div class="spacer" />
   <div class="button" :class="`${mode}`" @click="() => {switchMode()}">
@@ -48,10 +27,11 @@
 import Vue, { PropOptions } from 'vue'
 import { menuModes } from '~/layouts/default.vue'
 import { PAGE_INDEX } from '~/misc/config'
+import { NAVBAR_LIST } from '~/misc/data'
 
 type dataType = {
   selected: boolean[],
-  PAGE_INDEX: any
+  navbar_list: any
 }
 
 export default Vue.extend({
@@ -61,7 +41,7 @@ export default Vue.extend({
   },
   data: (): dataType => { return {
     selected: [true],
-    PAGE_INDEX
+    navbar_list: NAVBAR_LIST
   }},
   methods: {
     setSelected(index: number) {

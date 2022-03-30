@@ -32,15 +32,12 @@
 <script lang="ts">
 import Vue, { PropOptions } from 'vue'
 import { PAGE_INDEX } from '~/misc/config'
+import { projectType, PROJECT_LIST } from '~/misc/data'
 
 type point = { x: number, y: number}
 
-type normal_project_data = { selected: boolean, link?: string, src: string, title: string, description: string, active?: boolean }
-type empty_project_data  = { active: boolean}
-type project_data = normal_project_data | empty_project_data
-
 type dataType = {
-  project_list: project_data[],
+  project_list: projectType[],
   title: string,
   description: string,
   link: string,
@@ -56,32 +53,7 @@ type dataType = {
 
 export default Vue.extend({
   data: (): dataType => { return {
-    project_list: [
-      { active: false },
-//-------------------------------------------
-{ selected: false, link:'https://tomm2000.github.io/StarForge-Prototypes/', src: 'https://github.com/tomm2000/Portfolio/blob/master/assets/images/planetpic.png?raw=true', title: 'StarForge', description: 
-`A procedural solar system and planet generator.
-
-Written in typescript using Babylon.js for the 3D and various noise algorithms for the terrain generation.
-
-The generator is GPU-accelerated for better performance`},
-//-------------------------------------------
-{ selected: false, link:'https://github.com/tomm2000/neat_rust', src: 'https://github.com/tomm2000/Portfolio/blob/master/assets/images/rustneat.png?raw=true', title: 'Rust N.E.A.T.', description:
-`A rust implementation of the NEAT (NeuroEvolution of Augmenting Topologies) algorithm.
-
-Written in rust using macroQUAD for the interface.
-`},
-//-------------------------------------------
-{ selected: false, src: 'https://github.com/tomm2000/Portfolio/blob/master/assets/images/mailapp.png?raw=true', title: 'Mail App', description:
-`University project for 'programmazione 3'
-`},
-//-------------------------------------------
-{ selected: false, src: 'https://github.com/tomm2000/Portfolio/blob/master/assets/images/webapp.png?raw=true', title: 'Prenotazioni WebApp', description:
-`University project for 'tecnologie web'
-`},
-//-------------------------------------------
-      { active: false }
-    ],
+    project_list: PROJECT_LIST,
     title: '',
     description: '',
     link: '',
@@ -172,6 +144,10 @@ Written in rust using macroQUAD for the interface.
 
     const body = document.getElementsByTagName('body').item(0)!
     body.onresize = () => { this.updatePositions() }
+
+    setTimeout(() => {
+      this.updatePositions()
+    }, 30);
 
     this.$nextTick(() => {
       this.updatePositions()

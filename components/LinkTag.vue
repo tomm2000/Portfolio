@@ -1,7 +1,7 @@
 <template>
 <div class="linktag" :class="{selected}" @click="select" ref="element">
-  <div class="icon-wrap"><slot /></div>
-  <div class="text-wrap noselect">{{text}}</div>
+  <div class="icon-wrap" v-html="icon_fix"></div>
+  <div class="text-wrap noselect" :style="`color: ${selected ? 'white' : '#ffffff55'}`">{{title}}</div>
 </div >
 </template>
 
@@ -10,16 +10,31 @@ import Vue, { PropOptions } from 'vue'
 
 export default Vue.extend({
   props: {
-    text:  { type: String, required: true } as PropOptions<string>,
+    title:  { type: String, required: true } as PropOptions<string>,
     page:  { type: String, required: true } as PropOptions<string>,
     selected: { type: Boolean, required: false } as PropOptions<boolean>,
     index: { type: Number, required: true } as PropOptions<number>,
-    setSelected: { type: Function, required: true } as PropOptions<(index: number) => void>
+    icon: { type: String, required: true } as PropOptions<string>,
+    setSelected: { type: Function, required: true } as PropOptions<(index: number) => void>,
+    color: { type: String, required: true } as PropOptions<string>,
   },
   methods: {
     select() {
       this.setSelected(this.index)
       this.$router.push(this.page)
+    }
+  },
+  computed: {
+    icon_fix() {
+      const color = this.selected ? this.color : '#ffffff55'
+
+      let out: string = this.icon
+
+      out = out.replace(/#COLOR/, color)
+
+      out = out.replace(/#STYLE/, 'height: 50%; width: 50%; transition: fill .2s ease;')
+
+      return out
     }
   }
 })
@@ -35,7 +50,7 @@ export default Vue.extend({
 
   display: grid;
   grid-template-columns: 4rem auto;
-  border-radius: .6rem;
+  border-radius: .4rem;
 
   transition: background .2s ease;
 
@@ -45,13 +60,6 @@ export default Vue.extend({
     display: flex;
     justify-content: center;
     align-items: center;
-
-    * {
-      height: 50%;
-      width: 50%;
-      transition: fill .2s ease;
-      fill: $color_white_4;
-    }
   }
 
   .text-wrap {
@@ -72,9 +80,5 @@ export default Vue.extend({
   .text-wrap {
     color: $color_white_1;
   }
-
-  .icon-wrap { * {
-    fill: $color_white_1;
-  }}
 }
 </style>

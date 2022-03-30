@@ -1,13 +1,11 @@
 <template>
 <div class="about">
   <div class="list">
-    <Event date="2015 2019" info="Liceo scientifico (scienze applicate)" />
-    <Event date="2018 2019" info="Scuola lavoro" />
-    <Event date="2018" info="First certificate in english" />
-    <Event date="2020 2022" info="Laurea triennale in informatica (università di torino)" />
-    <Event date="" info="" />
-    <Event date="" info="" />
-    <Event date="" info="" />
+    <Event v-for="(event, index) in event_list" :key="index"
+      :title="event.title"
+      :date="event.date"
+      :description="event.description"
+    />
   </div>
 </div>
 </template>
@@ -15,11 +13,15 @@
 <script lang='ts'>
 import Vue, { PropOptions } from 'vue'
 import { PAGE_INDEX } from '@/misc/config'
+import { EVENT_LIST } from '@/misc/data'
 
 export default Vue.extend({
   mounted() {
     this.$store.commit('CHANGE_ROUTE_INDEX', PAGE_INDEX.about)
-  }
+  },
+  data() { return { 
+    event_list: EVENT_LIST
+  }}
 })
 </script>
 
@@ -27,7 +29,6 @@ export default Vue.extend({
 @import '@/assets/css/colors.scss';
 
 .about {
-  
   .list {
     max-height: 100vh;
     overflow-y: scroll;
