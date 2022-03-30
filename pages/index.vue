@@ -31,6 +31,7 @@ import Vue, { PropOptions } from 'vue'
 // import { highlight, highlightAll, languages } from 'prismjs'
 import Prism from '~/plugins/prism'
 import { code_snippet, code_snippets } from '@/misc/snippets'
+import { PAGE_INDEX } from '~/misc/config'
 
 type dataType = {
   code: code_snippet | undefined,
@@ -92,7 +93,7 @@ export default Vue.extend({
     }
   },
   mounted() {
-    this.$store.commit('CHANGE_ROUTE_INDEX', 0)
+    this.$store.commit('CHANGE_ROUTE_INDEX', PAGE_INDEX.home)
 
     this.new_snippet()
     this.update_snippet()

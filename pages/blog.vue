@@ -1,13 +1,14 @@
 <template>
-<h1>! WIP PAGE (blog) !</h1>
+<h1>Work In Progress!</h1>
 </template>
 
 <script lang='ts'>
 import Vue, { PropOptions } from 'vue'
+import { PAGE_INDEX } from '~/misc/config'
 
 export default Vue.extend({
   mounted() {
-    this.$store.commit('CHANGE_ROUTE_INDEX', 2)
+    this.$store.commit('CHANGE_ROUTE_INDEX', PAGE_INDEX.blog)
   }
 })
 </script>

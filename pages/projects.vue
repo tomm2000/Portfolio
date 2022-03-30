@@ -31,6 +31,7 @@
 
 <script lang="ts">
 import Vue, { PropOptions } from 'vue'
+import { PAGE_INDEX } from '~/misc/config'
 
 type point = { x: number, y: number}
 
@@ -165,7 +166,7 @@ Written in rust using macroQUAD for the interface.
     }
   },
   mounted() {
-    this.$store.commit('CHANGE_ROUTE_INDEX', 1)
+    this.$store.commit('CHANGE_ROUTE_INDEX', PAGE_INDEX.projects)
     
     this.updatePositions()
 
