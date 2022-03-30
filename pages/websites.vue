@@ -4,11 +4,11 @@
 
 <script lang='ts'>
 import Vue, { PropOptions } from 'vue'
-import { PAGE_INDEX } from '~/misc/config'
+import { NAVBAR_LIST } from '~/misc/data'
 
 export default Vue.extend({
   mounted() {
-    this.$store.commit('CHANGE_ROUTE_INDEX', PAGE_INDEX.websites)
+    this.$store.commit('CHANGE_ROUTE_INDEX', NAVBAR_LIST.findIndex(item => item.title == 'Websites'))
   }
 })
 </script>

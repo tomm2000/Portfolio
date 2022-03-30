@@ -1,29 +1,31 @@
 <template>
 <div class="projects">
-  <svg height="210" width="500" class="pointer">
-    <line class="line" :x1="position.x" :y1="position.y" :x2="subline_start.x" :y2="subline_start.y" />
-    <circle class="point" :cx="position.x" :cy="position.y" r="3" />
-    <circle class="joint" :cx="subline_start.x" :cy="subline_start.y" r="3" />
-    <line class="subline" :x1="subline_start.x" :y1="subline_start.y" :x2="subline_end.x" :y2="subline_end.y" />
-  </svg>
-  <div class="distance-meter" id="distance-meter"></div>
-  <div id="list" class="list" @scroll="updatePositions">
-    <ProjectDisplay v-for="(item, index) in project_list" :key="index"
-      :src="item.src"
-      :title="item.title"
-      :description="item.description"
-      :link="item.link"
-      :setDisplayeElement="setDisplayElement"
-      :index="index"
-      :active="item.active"
-      :selected="item.selected"
-    />
-  </div>
-  <div class="description" @load="() => {console.log('load')}">
-    <div class="wrapper">
-      <div class="link"><a v-if="link != undefined" :href="link" class="noselect">click for more info!</a></div>
-      <h1 id="title">{{ title }}</h1>
-      <span id="desc">{{ description }}</span>
+  <div class="content-wrap">
+    <svg height="210" width="500" class="pointer">
+      <line class="line" :x1="position.x" :y1="position.y" :x2="subline_start.x" :y2="subline_start.y" />
+      <circle class="point" :cx="position.x" :cy="position.y" r="3" />
+      <circle class="joint" :cx="subline_start.x" :cy="subline_start.y" r="3" />
+      <line class="subline" :x1="subline_start.x" :y1="subline_start.y" :x2="subline_end.x" :y2="subline_end.y" />
+    </svg>
+    <div class="distance-meter" id="distance-meter"></div>
+    <div id="list" class="list" @scroll="updatePositions">
+      <ProjectDisplay v-for="(item, index) in project_list" :key="index"
+        :src="item.src"
+        :title="item.title"
+        :description="item.description"
+        :link="item.link"
+        :setDisplayeElement="setDisplayElement"
+        :index="index"
+        :active="item.active"
+        :selected="item.selected"
+      />
+    </div>
+    <div class="description" @load="() => {console.log('load')}">
+      <div class="wrapper">
+        <div class="link"><a v-if="link != undefined" :href="link" class="noselect">click for more info!</a></div>
+        <h1 id="title">{{ title }}</h1>
+        <span id="desc">{{ description }}</span>
+      </div>
     </div>
   </div>
 </div>
@@ -31,8 +33,7 @@
 
 <script lang="ts">
 import Vue, { PropOptions } from 'vue'
-import { PAGE_INDEX } from '~/misc/config'
-import { projectType, PROJECT_LIST } from '~/misc/data'
+import { NAVBAR_LIST, projectType, PROJECT_LIST } from '~/misc/data'
 
 type point = { x: number, y: number}
 
@@ -138,7 +139,7 @@ export default Vue.extend({
     }
   },
   mounted() {
-    this.$store.commit('CHANGE_ROUTE_INDEX', PAGE_INDEX.projects)
+    this.$store.commit('CHANGE_ROUTE_INDEX', NAVBAR_LIST.findIndex(item => item.title == 'Projects'))
     
     this.updatePositions()
 
@@ -160,7 +161,7 @@ export default Vue.extend({
 <style lang="scss" scoped>
 @import '@/assets/css/colors.scss';
 
-.projects {
+.projects { .content-wrap {
   display: grid;
   grid-template-columns: 0 20rem auto;
   grid-template-rows: 1fr;
@@ -271,10 +272,13 @@ export default Vue.extend({
       }
     } 
   }
-}
+}}
 
 @media screen and (max-width: $mobile_width_1) {
-  .projects {
+.projects {
+  padding-top: 5rem;
+  .content-wrap {
+    border-top: 1px solid $color_white_3;
     grid-template-columns: 1fr;
     grid-template-rows: 0 25rem auto;
 
@@ -292,7 +296,7 @@ export default Vue.extend({
     .list {
       grid-row: 2;
       grid-column: 1;
-      margin-top: 5rem;
+      margin-top: 1rem;
       padding: 0 3rem 0 3rem;
     }
 
@@ -316,5 +320,5 @@ export default Vue.extend({
       }
     }
   }
-}
+}}
 </style>

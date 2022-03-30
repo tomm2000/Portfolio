@@ -1,35 +1,5 @@
-//---- EVENTS ---------------------------------------------
-type eventType = {
-  date: string,
-  title: string,
-  description: string
-}
+//---------------------------------------------------------
 
-export const EVENT_LIST: eventType[] = [{
-  date: '2015 2019',
-  title: 'Liceo scientifico (scienze applicate)',
-  description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, facilis animi aperiam impedit id eaque cum quas incidunt repellendus quae. Inventore cumque incidunt iste, ratione nulla animi voluptate officiis aspernatur!'
-},{
-  date: '2018 2019',
-  title: 'Scuola lavoro',
-  description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, facilis animi aperiam impedit id eaque cum quas incidunt repellendus quae. Inventore cumque incidunt iste, ratione nulla animi voluptate officiis aspernatur!'
-},{
-  date: '2018',
-  title: 'First certificate in english',
-  description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, facilis animi aperiam impedit id eaque cum quas incidunt repellendus quae. Inventore cumque incidunt iste, ratione nulla animi voluptate officiis aspernatur!'
-},{
-  date: '2020 2022',
-  title: 'Laurea triennale in informatica (università di torino)',
-  description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, facilis animi aperiam impedit id eaque cum quas incidunt repellendus quae. Inventore cumque incidunt iste, ratione nulla animi voluptate officiis aspernatur!'
-},{
-  date: '',
-  title: '',
-  description: ''
-},{
-  date: '',
-  title: '',
-  description: ''
-},]
 //---------------------------------------------------------
 
 
@@ -89,7 +59,7 @@ export const NAVBAR_LIST: navbarType[] = [{
 },{
   index: 1,
   title: 'Projects',
-  page: '/Projects',
+  page: '/projects',
   color: '#3BCE94',
   icon: 
   `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#COLOR" style="#STYLE" class="bi bi-stack" viewBox="0 0 16 16">
@@ -99,7 +69,7 @@ export const NAVBAR_LIST: navbarType[] = [{
 },{
   index: 2,
   title: 'About',
-  page: '/About',
+  page: '/about',
   color: '#C64B4D',
   icon: 
   `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#COLOR" style="#STYLE" viewBox="0 0 16 16">
@@ -109,7 +79,7 @@ export const NAVBAR_LIST: navbarType[] = [{
 },{
   index: 3,
   title: 'Websites',
-  page: '/Websites',
+  page: '/websites',
   color: '#F09148',
   icon: 
   `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#COLOR" style="#STYLE" class="bi bi-share-fill" viewBox="0 0 16 16">
@@ -118,7 +88,7 @@ export const NAVBAR_LIST: navbarType[] = [{
 },{
   index: 4,
   title: 'Blog',
-  page: '/Blog',
+  page: '/blog',
   color: '#F048DF',
   icon: 
   `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#COLOR" style="#STYLE" class="bi bi-journal-bookmark-fill" viewBox="0 0 16 16">

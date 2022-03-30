@@ -26,7 +26,6 @@
 <script lang="ts">
 import Vue, { PropOptions } from 'vue'
 import { menuModes } from '~/layouts/default.vue'
-import { PAGE_INDEX } from '~/misc/config'
 import { NAVBAR_LIST } from '~/misc/data'
 
 type dataType = {
