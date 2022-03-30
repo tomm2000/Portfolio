@@ -93,7 +93,7 @@ export default Vue.extend({
     }
   },
   mounted() {
-    this.$store.commit('CHANGE_ROUTE_INDEX', NAVBAR_LIST.findIndex(item => item.title == 'Home'))
+    this.$store.commit('CHANGE_ROUTE_INDEX', NAVBAR_LIST.findIndex(item => item.id == 'home'))
 
     this.new_snippet()
     this.update_snippet()

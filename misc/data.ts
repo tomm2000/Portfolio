@@ -11,25 +11,29 @@ export type projectType = normal_project_data | empty_project_data
 export const PROJECT_LIST: projectType[] = [
 { active: false },
 //-------------------------------------------
-{ selected: false, link:'https://tomm2000.github.io/StarForge-Prototypes/', src: 'https://github.com/tomm2000/Portfolio/blob/master/assets/images/planetpic.png?raw=true', title: 'StarForge', description: 
+{ selected: false, link:'https://tomm2000.github.io/StarForge-Prototypes/', src: 'projects/starforge.png', title: 'StarForge', description: 
 `A procedural solar system and planet generator.
 
 Written in typescript using Babylon.js for the 3D and various noise algorithms for the terrain generation.
 
 The generator is GPU-accelerated for better performance`},
 //-------------------------------------------
-{ selected: false, link:'https://github.com/tomm2000/neat_rust', src: 'https://github.com/tomm2000/Portfolio/blob/master/assets/images/rustneat.png?raw=true', title: 'Rust N.E.A.T.', description:
+{ selected: false, link:'https://github.com/tomm2000/neat_rust', src: 'projects/rustneat.png', title: 'Rust N.E.A.T.', description:
 `A rust implementation of the NEAT (NeuroEvolution of Augmenting Topologies) algorithm.
 
 Written in rust using macroQUAD for the interface.
 `},
 //-------------------------------------------
-{ selected: false, src: 'https://github.com/tomm2000/Portfolio/blob/master/assets/images/mailapp.png?raw=true', title: 'Mail App', description:
+{ selected: false, src: 'projects/mailapp.png', title: 'Mail App', description:
 `University project for 'programmazione 3'
 `},
 //-------------------------------------------
-{ selected: false, src: 'https://github.com/tomm2000/Portfolio/blob/master/assets/images/webapp.png?raw=true', title: 'Prenotazioni WebApp', description:
+{ selected: false, src: 'projects/webapp.png', title: 'Prenotazioni WebApp', description:
 `University project for 'tecnologie web'
+`},
+//-------------------------------------------
+{ selected: false, src: 'projects/python_gallery.png', title: 'Python big-repo', link: 'https://github.com/tomm2000/python_bigrepo', description:
+`A collection of multiple old python projects of mine
 `},
 //-------------------------------------------
 { active: false }
@@ -40,6 +44,7 @@ Written in rust using macroQUAD for the interface.
 //---- NAVBAR ---------------------------------------------
 type navbarType = {
   index: number,
+  id: string,
   title: string,
   icon: string,
   page: string,
@@ -48,6 +53,7 @@ type navbarType = {
 
 export const NAVBAR_LIST: navbarType[] = [{
   index: 0,
+  id: 'home',
   title: 'Home',
   page: '/',
   color: '#1E75FF',
@@ -58,6 +64,7 @@ export const NAVBAR_LIST: navbarType[] = [{
   </svg>`
 },{
   index: 1,
+  id: 'projects',
   title: 'Projects',
   page: '/projects',
   color: '#3BCE94',
@@ -68,7 +75,8 @@ export const NAVBAR_LIST: navbarType[] = [{
   </svg>`
 },{
   index: 2,
-  title: 'About',
+  id: 'about',
+  title: 'About (WIP)',
   page: '/about',
   color: '#C64B4D',
   icon: 
@@ -78,7 +86,8 @@ export const NAVBAR_LIST: navbarType[] = [{
   </svg>`
 },{
   index: 3,
-  title: 'Websites',
+  id: 'websites',
+  title: 'Websites (WIP)',
   page: '/websites',
   color: '#F09148',
   icon: 
@@ -87,7 +96,8 @@ export const NAVBAR_LIST: navbarType[] = [{
   </svg>`
 },{
   index: 4,
-  title: 'Blog',
+  id: 'blog',
+  title: 'Blog (WIP)',
   page: '/blog',
   color: '#F048DF',
   icon: 

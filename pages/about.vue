@@ -2,15 +2,15 @@
 <div class="about">
   <div class="grid-wrap">
     <div class="work area">
-      <div class="title-wrap"><span class="title">Work experience</span></div>
+      <div class="title-wrap"><span class="title">Work experience</span><img class="icon" src="about/work.svg"></div>
       <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga corrupti est praesentium! Asperiores voluptatum quia, quaerat labore repellendus in! Alias atque minus reprehenderit! Aperiam rem voluptas veniam sit fuga numquam.</div>
     </div>
     <div class="software area">
-      <div class="title-wrap"><span class="title">Software experience</span></div>
+      <div class="title-wrap"><span class="title">Software experience</span><img class="icon" src="about/software.svg"></div>
       <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur repudiandae voluptatem vero sunt dignissimos laboriosam, consectetur assumenda eos sapiente, necessitatibus repellat adipisci perspiciatis odit obcaecati animi exercitationem! Reiciendis, optio suscipit.</div>
     </div>
     <div class="language area">
-      <div class="title-wrap"><span class="title">Language Skills</span></div>
+      <div class="title-wrap"><span class="title">Language Skills</span><img class="icon" src="about/language.svg"></div>
       <div class="lang-wrap ita">
         <span class="title">Italiano</span>
         <div class="meter-wrap"><img src="ita_meter.svg" alt="" srcset=""></div>
@@ -21,7 +21,7 @@
       </div>
     </div>
     <div class="education area">
-      <div class="title-wrap"><span class="title">Education</span></div>
+      <div class="title-wrap"><span class="title">Education</span><img class="icon" src="about/education.svg"></div>
       <div class="list-wrap">
         <ul class="list">
           <li><div class="point"/><span class="text">Diploma, liceo scientifico opzione scienze applicate</span></li>
@@ -31,7 +31,7 @@
       </div>
     </div>
     <div class="curriculum area">
-      <div class="title-wrap"><span class="title">Curriculum</span></div>
+      <div class="title-wrap"><span class="title">Curriculum</span><img class="icon" src="about/curriculum.svg"></div>
       <span class="info">My CV contains personal information that i’m not confortable sharing online.</span>
       <span class="info">You can email me for a copy of it.</span>
       <div class="button"><a class="text noselect" href="mailto:tommasofogliobonda.tfb@gmail.com">Email me!</a></div>
@@ -46,7 +46,7 @@ import { NAVBAR_LIST } from '@/misc/data'
 
 export default Vue.extend({
   mounted() {
-    this.$store.commit('CHANGE_ROUTE_INDEX', NAVBAR_LIST.findIndex(item => item.title == 'About'))
+    this.$store.commit('CHANGE_ROUTE_INDEX', NAVBAR_LIST.findIndex(item => item.id == 'about'))
   },
   data() { return { 
   }}
@@ -65,6 +65,8 @@ export default Vue.extend({
     "c d e" 1fr / 1fr 1fr 1fr;
     gap: 1rem;
     padding: 2rem;
+    height: 100%;
+    width: 100%;
 
     .area {
       border: 1px solid $color_white_5;
@@ -75,10 +77,16 @@ export default Vue.extend({
       .title-wrap {
         height: 3rem;
         padding: .5rem .5rem .5rem 1rem;
+        display: flex;
+        gap: 1rem;
 
         .title {
           font-weight: bold;
           font-size: x-large;
+        }
+
+        .icon {
+          padding: .2rem;
         }
       }
     }
@@ -177,9 +185,7 @@ export default Vue.extend({
 
 @media screen and (max-width: $mobile_width_2) {
 .about {
-  padding-top: 5rem;
   .grid-wrap {
-    border-top: 1px solid $color_white_3;
     max-height: 100%;
     grid-template:
     "a" 30rem
@@ -191,6 +197,15 @@ export default Vue.extend({
     overflow-y: scroll;
     // padding-bottom: 1rem;
     padding-bottom: 5rem;
+  }
+}
+}
+
+@media screen and (max-width: $mobile_width_1) {
+.about {
+  padding-top: 5rem;
+  .grid-wrap {
+    border-top: 1px solid $color_white_3;
   }
 }
 }
