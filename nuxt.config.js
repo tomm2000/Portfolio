@@ -68,7 +68,7 @@ export default {
   },
 
   server: {
-    host: '192.168.1.224' // default: localhost
+    host: '26.165.18.89' // default: localhost
     // host: '192.168.76.1'
   }
 }
